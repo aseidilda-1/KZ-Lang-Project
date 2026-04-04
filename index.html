@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillTree | Ойын стиліндегі дағды карталары</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body class="page page-home">
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">ST</span>
+        <span class="brand-text">SkillTree</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Негізгі навигация">
+        <a href="index.html" aria-current="page">Басты бет</a>
+        <a href="pricing.html">Тарифтер</a>
+        <a href="about.html">Жоба туралы</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero panel">
+        <div class="hero-copy">
+          <p class="eyebrow">Заманауи мамандарға арналған ойын форматындағы оқу</p>
+          <h1>Әр дағдыны түсінікті, ойнауға ұқсас жол картасына айналдырыңыз.</h1>
+          <p class="hero-text">
+            SkillTree оқуды деңгейлерге бөледі, прогресті бақылайды және жаңа бағыттарды ашуға көмектеседі.
+            Алдымен үш белсенді бағыттан бастаңыз, кейін жаңаларын сұрау арқылы қосыңыз.
+          </p>
+
+          <div class="hero-stats">
+            <article class="stat-card">
+              <span class="stat-value">3</span>
+              <span class="stat-label">Бастапқыда көрінетін ағаштар</span>
+            </article>
+            <article class="stat-card">
+              <span class="stat-value">5</span>
+              <span class="stat-label">MVP каталогындағы жол карталары</span>
+            </article>
+            <article class="stat-card">
+              <span class="stat-value">9</span>
+              <span class="stat-label">Әр жол картасындағы дағдылар</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="hero-console">
+          <div class="console-card">
+            <p class="console-title">Жаңа тармақты құру</p>
+            <form class="skill-form" id="skillForm">
+              <label class="sr-only" for="skillInput">Дағдыны енгізіңіз</label>
+              <input id="skillInput" name="skill" type="text" placeholder="Дағдыны енгізіңіз (ЖИ функциясы)" autocomplete="off">
+              <button type="submit" id="generateButton">Құру</button>
+            </form>
+            <p class="search-feedback" id="searchFeedback">Жасырын ағаштарды ашу үшін <strong>деректер</strong> немесе <strong>маркетинг</strong> деп теріп көріңіз.</p>
+
+            <div class="console-meta">
+              <span>Көрінетін ағаштар: <strong id="visibleCount">3</strong>/5</span>
+              <span>Белсенді бағыт: <strong id="activeCourseName">Бағдарламалау</strong></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dashboard">
+        <section class="panel courses-panel">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Қолжетімді жол карталары</p>
+              <h2>Келесі квест бағытыңызды таңдаңыз</h2>
+            </div>
+            <p class="section-copy">Алғашында тек үшеуі көрінеді. Жасырын дағды ағаштары генерациядан кейін осы жерге қосылады.</p>
+          </div>
+
+          <div class="course-grid" id="courseGrid" aria-live="polite"></div>
+        </section>
+
+        <section class="panel roadmap-panel">
+          <div class="section-head roadmap-heading">
+            <div>
+              <p class="eyebrow">Қазіргі жол картасы</p>
+              <h2 id="roadmapTitle">Бағдарламалау</h2>
+              <p class="section-copy" id="roadmapDescription"></p>
+            </div>
+
+            <div class="progress-card">
+              <div class="progress-meta">
+                <span>Жалпы прогресс</span>
+                <span id="progressText">0%</span>
+              </div>
+              <div class="progress-bar" aria-hidden="true">
+                <div class="progress-fill" id="progressFill"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-levels" id="roadmapLevels" aria-live="polite"></div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>SkillTree MVP. Ойнағандай үйреніп, сенімді түрде нәтиже шығарыңыз.</p>
+    </footer>
+  </div>
+
+  <div class="loading-overlay hidden" id="loadingOverlay" aria-hidden="true">
+    <div class="loading-card">
+      <div class="loading-core" aria-hidden="true">
+        <span class="loading-ring loading-ring-one"></span>
+        <span class="loading-ring loading-ring-two"></span>
+        <span class="loading-seed"></span>
+      </div>
+      <h2>Дағды ағашы жасалып жатыр</h2>
+      <p id="loadingMessage">Келесі тармақ сканерленіп, жол картасы дайындалып жатыр...</p>
+    </div>
+  </div>
+</body>
+</html>
